@@ -1,0 +1,40 @@
+<section>
+  <div class="page-header">
+    <h1>Yakındaki son lokmalar</h1>
+    <p>İlk aşamada ekran kabuğunu kuruyoruz. Sonraki sprintte bu liste gerçek API verisine ve mesafe filtrelerine bağlanacak.</p>
+  </div>
+
+  <div class="toolbar panel">
+    <button class="button secondary" type="button">Mesafe</button>
+    <button class="button secondary" type="button">Kategori</button>
+    <button class="button secondary" type="button">Fiyat</button>
+    <a class="button" routerLink="/customer/reservations">Rezervasyonlarım</a>
+  </div>
+
+  <div class="grid cards listing-grid">
+    @for (listing of listings; track listing.title) {
+      <article class="panel listing-card">
+        <div>
+          <span class="category">{{ listing.category }}</span>
+          <h2>{{ listing.title }}</h2>
+          <p>{{ listing.business }}</p>
+        </div>
+        <dl>
+          <div>
+            <dt>Fiyat</dt>
+            <dd>{{ listing.price }}</dd>
+          </div>
+          <div>
+            <dt>Teslim</dt>
+            <dd>{{ listing.pickup }}</dd>
+          </div>
+          <div>
+            <dt>Stok</dt>
+            <dd>{{ listing.stock }} adet</dd>
+          </div>
+        </dl>
+        <button class="button" type="button">Ayırt</button>
+      </article>
+    }
+  </div>
+</section>

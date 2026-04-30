@@ -1,0 +1,20 @@
+services:
+  postgres:
+    image: postgis/postgis:16-3.5
+    container_name: sonlokma-postgres
+    environment:
+      POSTGRES_DB: sonlokma
+      POSTGRES_USER: sonlokma
+      POSTGRES_PASSWORD: sonlokma_dev_password
+    ports:
+      - "5433:5432"
+    volumes:
+      - sonlokma-postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U sonlokma -d sonlokma"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  sonlokma-postgres-data:

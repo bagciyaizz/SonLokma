@@ -1,0 +1,28 @@
+<section class="auth-layout">
+  <div class="page-header">
+    <h1>Giriş yap</h1>
+    <p>Yakındaki sürpriz paketleri görmek veya işletme paneline geçmek için hesabına gir.</p>
+  </div>
+
+  <form class="panel auth-form" [formGroup]="form" (ngSubmit)="submit()">
+    <div class="field">
+      <label for="email">E-posta</label>
+      <input id="email" type="email" autocomplete="email" formControlName="email" />
+    </div>
+
+    <div class="field">
+      <label for="password">Şifre</label>
+      <input id="password" type="password" autocomplete="current-password" formControlName="password" />
+    </div>
+
+    @if (error()) {
+      <p class="error">{{ error() }}</p>
+    }
+
+    <button class="button" type="submit" [disabled]="form.invalid || isSubmitting()">
+      {{ isSubmitting() ? 'Giriş yapılıyor' : 'Giriş yap' }}
+    </button>
+
+    <p class="muted">Hesabın yoksa <a routerLink="/auth/register">kayıt ol</a>.</p>
+  </form>
+</section>

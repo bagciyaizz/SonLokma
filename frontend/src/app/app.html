@@ -1,0 +1,26 @@
+<header class="topbar">
+  <a class="brand" routerLink="/customer/discover">
+    <span class="brand-mark">SL</span>
+    <span>SonLokma</span>
+  </a>
+
+  <nav class="nav">
+    <a routerLink="/customer/discover">Keşfet</a>
+    <a routerLink="/business/dashboard">İşletme</a>
+    <a routerLink="/admin/dashboard">Admin</a>
+  </nav>
+
+  <div class="session">
+    @if (auth.currentUser(); as user) {
+      <span>{{ user.fullName }}</span>
+      <button type="button" (click)="auth.logout()">Çıkış</button>
+    } @else {
+      <a routerLink="/auth/login">Giriş</a>
+      <a class="primary-link" routerLink="/auth/register">Kayıt</a>
+    }
+  </div>
+</header>
+
+<main class="shell">
+  <router-outlet />
+</main>

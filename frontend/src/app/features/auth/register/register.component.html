@@ -1,0 +1,46 @@
+<section class="auth-layout">
+  <div class="page-header">
+    <h1>Kayıt ol</h1>
+    <p>İlk sürümde kullanıcı ve işletme rolleriyle giriş altyapısını test ediyoruz.</p>
+  </div>
+
+  <form class="panel auth-form" [formGroup]="form" (ngSubmit)="submit()">
+    <div class="field">
+      <label for="fullName">Ad soyad</label>
+      <input id="fullName" type="text" autocomplete="name" formControlName="fullName" />
+    </div>
+
+    <div class="field">
+      <label for="email">E-posta</label>
+      <input id="email" type="email" autocomplete="email" formControlName="email" />
+    </div>
+
+    <div class="field">
+      <label for="phone">Telefon</label>
+      <input id="phone" type="tel" autocomplete="tel" formControlName="phone" />
+    </div>
+
+    <div class="field">
+      <label for="role">Hesap tipi</label>
+      <select id="role" formControlName="role">
+        <option value="Customer">Kullanıcı</option>
+        <option value="Business">İşletme</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label for="password">Şifre</label>
+      <input id="password" type="password" autocomplete="new-password" formControlName="password" />
+    </div>
+
+    @if (error()) {
+      <p class="error">{{ error() }}</p>
+    }
+
+    <button class="button" type="submit" [disabled]="form.invalid || isSubmitting()">
+      {{ isSubmitting() ? 'Kayıt oluşturuluyor' : 'Kayıt ol' }}
+    </button>
+
+    <p class="muted">Zaten hesabın varsa <a routerLink="/auth/login">giriş yap</a>.</p>
+  </form>
+</section>

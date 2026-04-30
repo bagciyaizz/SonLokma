@@ -1,0 +1,83 @@
+.topbar {
+  align-items: center;
+  background: #ffffff;
+  border-bottom: 1px solid #e6e1d8;
+  display: grid;
+  gap: 20px;
+  grid-template-columns: auto 1fr auto;
+  min-height: 68px;
+  padding: 0 28px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.brand {
+  align-items: center;
+  color: #17211a;
+  display: inline-flex;
+  font-size: 20px;
+  font-weight: 800;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.brand-mark {
+  align-items: center;
+  background: #f0bd48;
+  border-radius: 8px;
+  color: #1f2a18;
+  display: inline-flex;
+  font-size: 13px;
+  height: 34px;
+  justify-content: center;
+  width: 34px;
+}
+
+.nav,
+.session {
+  align-items: center;
+  display: flex;
+  gap: 14px;
+}
+
+.nav a,
+.session a,
+.session button {
+  color: #394338;
+  font: inherit;
+  text-decoration: none;
+}
+
+.session {
+  justify-content: flex-end;
+}
+
+.session button,
+.primary-link {
+  background: #1d6b49;
+  border: 0;
+  border-radius: 8px;
+  color: #ffffff !important;
+  cursor: pointer;
+  padding: 10px 14px;
+}
+
+.shell {
+  margin: 0 auto;
+  max-width: 1180px;
+  padding: 32px 24px 56px;
+}
+
+@media (max-width: 760px) {
+  .topbar {
+    align-items: start;
+    grid-template-columns: 1fr;
+    padding: 18px;
+  }
+
+  .nav,
+  .session {
+    flex-wrap: wrap;
+  }
+}
