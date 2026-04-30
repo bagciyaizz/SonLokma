@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
-using SonLokma.Application.Auth;
+using SonLokma.Application.Common.Interfaces;
 using SonLokma.Domain.Entities;
 using SonLokma.Infrastructure.Authentication;
 using SonLokma.Infrastructure.Persistence;
@@ -21,6 +21,7 @@ public static class DependencyInjection
 
         services.AddDbContext<SonLokmaDbContext>(options =>
             options.UseNpgsql(connectionString, npgsql => npgsql.UseNetTopologySuite()));
+        services.AddScoped<ISonLokmaDbContext>(provider => provider.GetRequiredService<SonLokmaDbContext>());
 
         services.Configure<JwtOptions>(configuration.GetSection(JwtOptions.SectionName));
         var jwtOptions = configuration.GetSection(JwtOptions.SectionName).Get<JwtOptions>()

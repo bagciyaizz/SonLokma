@@ -103,6 +103,12 @@ a {
   font-size: 14px;
 }
 
+.success {
+  color: #1d6b49;
+  font-size: 14px;
+  font-weight: 700;
+}
+
 .auth-layout {
   display: grid;
   gap: 24px;
@@ -184,8 +190,75 @@ dd {
   gap: 8px;
 }
 
+.business-layout {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: minmax(0, 1fr) 320px;
+}
+
+.coordinate-grid {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: 1fr 1fr;
+}
+
+.status-panel {
+  align-self: start;
+  display: grid;
+  gap: 12px;
+}
+
+.status-panel p {
+  margin: 0;
+}
+
+.status-badge {
+  background: #efe9dd;
+  border-radius: 8px;
+  color: #66562c;
+  display: inline-flex;
+  padding: 8px 10px;
+  width: fit-content;
+}
+
+.status-badge.approved {
+  background: #dcefe4;
+  color: #1d6b49;
+}
+
+.status-badge.rejected {
+  background: #f5dfdc;
+  color: #a03427;
+}
+
+.approval-card {
+  display: grid;
+  gap: 18px;
+}
+
+.approval-card h2 {
+  margin: 8px 0;
+}
+
+.approval-card p {
+  color: #566153;
+  margin: 0 0 8px;
+}
+
+.action-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
 @media (max-width: 820px) {
-  .auth-layout {
+  .auth-layout,
+  .business-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .coordinate-grid {
     grid-template-columns: 1fr;
   }
 }

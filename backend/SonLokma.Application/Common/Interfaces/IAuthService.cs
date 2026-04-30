@@ -1,4 +1,6 @@
-namespace SonLokma.Application.Auth;
+using SonLokma.Application.Auth;
+
+namespace SonLokma.Application.Common.Interfaces;
 
 public interface IAuthService
 {

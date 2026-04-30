@@ -2,6 +2,7 @@ using System.Security.Claims;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SonLokma.Application.Auth;
+using SonLokma.Application.Common.Interfaces;
 
 namespace SonLokma.Api.Controllers;
 

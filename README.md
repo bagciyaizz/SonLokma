@@ -25,6 +25,13 @@ npm start
 
 API varsayılan olarak `http://localhost:5106`, frontend `http://localhost:4200`, PostgreSQL host portu `5433` üzerinden çalışır.
 
+Development admin hesabı:
+
+```text
+Email: admin@sonlokma.local
+Password: Admin1234!
+```
+
 ## İlk MVP Sınırı
 
 - Kullanıcı kayıt/giriş ve JWT rol temeli

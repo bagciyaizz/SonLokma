@@ -7,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using SonLokma.Application.Auth;
+using SonLokma.Application.Common.Interfaces;
 using SonLokma.Domain.Entities;
 using SonLokma.Domain.Enums;
 using SonLokma.Infrastructure.Persistence;

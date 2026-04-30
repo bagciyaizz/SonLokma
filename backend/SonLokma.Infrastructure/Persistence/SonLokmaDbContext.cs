@@ -1,9 +1,11 @@
 using Microsoft.EntityFrameworkCore;
+using SonLokma.Application.Common.Interfaces;
 using SonLokma.Domain.Entities;
 
 namespace SonLokma.Infrastructure.Persistence;
 
-public sealed class SonLokmaDbContext(DbContextOptions<SonLokmaDbContext> options) : DbContext(options)
+public sealed class SonLokmaDbContext(DbContextOptions<SonLokmaDbContext> options)
+    : DbContext(options), ISonLokmaDbContext
 {
     public DbSet<User> Users => Set<User>();
     public DbSet<Business> Businesses => Set<Business>();

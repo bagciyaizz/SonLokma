@@ -1,0 +1,58 @@
+<section>
+  <div class="page-header">
+    <h1>Admin paneli</h1>
+    <p>Onay bekleyen isletmeleri kontrol et, uygun olanlari yayina hazir hale getir.</p>
+  </div>
+
+  @if (!isAdmin()) {
+    <div class="panel empty-state">
+      <strong>Admin yetkisi gerekiyor.</strong>
+      <span class="muted">Development admin: admin@sonlokma.local</span>
+    </div>
+  } @else if (isLoading()) {
+    <div class="panel empty-state">
+      <strong>Yukleniyor</strong>
+      <span class="muted">Onay kuyruğu kontrol ediliyor.</span>
+    </div>
+  } @else {
+    @if (error()) {
+      <p class="error">{{ error() }}</p>
+    }
+
+    @if (pendingBusinesses().length === 0) {
+      <div class="panel empty-state">
+        <strong>Onay bekleyen isletme yok.</strong>
+        <span class="muted">Yeni basvurular burada listelenecek.</span>
+      </div>
+    } @else {
+      <div class="grid">
+        @for (business of pendingBusinesses(); track business.id) {
+          <article class="panel approval-card">
+            <div>
+              <span class="category">{{ business.category }}</span>
+              <h2>{{ business.name }}</h2>
+              <p>{{ business.description }}</p>
+              <span class="muted">{{ business.address }}</span>
+            </div>
+
+            <dl>
+              <div>
+                <dt>Basvuran</dt>
+                <dd>{{ business.ownerFullName }}</dd>
+              </div>
+              <div>
+                <dt>Konum</dt>
+                <dd>{{ business.latitude }}, {{ business.longitude }}</dd>
+              </div>
+            </dl>
+
+            <div class="action-row">
+              <button class="button secondary" type="button" (click)="reject(business)">Reddet</button>
+              <button class="button" type="button" (click)="approve(business)">Onayla</button>
+            </div>
+          </article>
+        }
+      </div>
+    }
+  }
+</section>
