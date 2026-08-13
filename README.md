@@ -8,29 +8,6 @@ Yiyecek ve içecek işletmelerinin gün sonunda israf olabilecek sürpriz paketl
 - Frontend: Angular 21
 - Database: PostgreSQL + PostGIS
 
-## Lokal Çalıştırma
-
-```powershell
-docker compose up -d
-dotnet ef database update --project backend\SonLokma.Infrastructure --startup-project backend\SonLokma.Api
-dotnet run --project backend\SonLokma.Api
-```
-
-Başka bir terminalde:
-
-```powershell
-cd frontend
-npm start
-```
-
-API varsayılan olarak `http://localhost:5106`, frontend `http://localhost:4200`, PostgreSQL host portu `5433` üzerinden çalışır.
-
-Development admin hesabı:
-
-```text
-Email: admin@sonlokma.local
-Password: Admin1234!
-```
 
 ## İlk MVP Sınırı
 
