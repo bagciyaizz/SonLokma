@@ -15,4 +15,4 @@ Yiyecek ve içecek işletmelerinin gün sonunda israf olabilecek sürpriz paketl
 - Customer / Business / Admin rol modeli
 - PostgreSQL + PostGIS konum altyapısı
 - Listing ve reservation entity temeli
-- Sonraki aşama: işletme başvurusu ve admin onayı
+
